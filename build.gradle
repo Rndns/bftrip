@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.portfolio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+	implementation 'com.google.code.gson:gson:2.9.0'
+	implementation 'org.json:json:20220320'
+	implementation 'net.pwall.json:json-simple:1.5.5'
+	implementation 'org.jetbrains:annotations:20.1.0'
+	compileOnly 'org.projectlombok:lombok'
+// 	runtimeOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'com.h2database:h2'
+	implementation group: 'org.javassist',name:'javassist',version:'3.15.0-GA'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
